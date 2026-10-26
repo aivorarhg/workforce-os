@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workforce OS</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#101426;color:#f5f6ff}
+header{padding:24px;background:#191f38;border-bottom:1px solid #343b59}
+header h1{margin:0;font-size:25px}
+header p{color:#b7bfd9}
+main{max-width:950px;margin:auto;padding:24px}
+.hero{padding:28px;background:linear-gradient(120deg,#303777,#6256ed);border-radius:16px}
+.hero h2{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin:22px 0}
+.card{background:#1a2037;border:1px solid #343b59;padding:20px;border-radius:13px}
+.card h3{margin-top:0}
+.tag{color:#b7adff;font-size:12px;font-weight:bold}
+label{display:block;margin:16px 0 7px}
+textarea,select{width:100%;padding:12px;border-radius:8px;border:1px solid #454d70;background:#11172b;color:white;font:inherit}
+textarea{min-height:120px}
+button{margin-top:15px;background:#7568ff;color:white;border:0;padding:12px 17px;border-radius:8px;font-weight:bold;font-size:15px}
+#result{margin-top:15px;background:#11172b;border-radius:10px;padding:16px;white-space:pre-wrap;color:#d9def4}
+small{color:#aab3ce}
+</style>
+</head>
+<body>
+<header>
+<h1>workforceOS</h1>
+<p>Funcionários de inteligência artificial para empresas.</p>
+</header>
+<main>
+<section class="hero">
+<h2>Conheça sua nova equipe.</h2>
+<p>Delegue tarefas, receba resultados e mantenha o controle.</p>
+</section>
+<h2>Seus funcionários</h2>
+<div class="grid">
+<div class="card"><span class="tag">PESQUISA</span><h3>Research Analyst</h3><p>Pesquisa mercados, compara concorrentes e prepara relatórios com fontes.</p></div>
+<div class="card"><span class="tag">EM BREVE</span><h3>Product Engineer</h3><p>Transforma ideias em especificações de produto.</p></div>
+<div class="card"><span class="tag">EM BREVE</span><h3>Growth & Sales</h3><p>Ajuda a pesquisar oportunidades comerciais.</p></div>
+</div>
+<section class="card">
+<h2>Atribuir uma tarefa</h2>
+<label for="task">O que o Research Analyst deve fazer?</label>
+<textarea id="task" placeholder="Ex.: Compare cinco concorrentes e liste seus preços e recursos."></textarea>
+<label for="language">Idioma do relatório</label>
+<select id="language"><option>Português</option><option>English</option><option>Español</option></select>
+<button onclick="prepareTask()">Preparar tarefa</button>
+<div id="result">Sua tarefa aparecerá aqui. Esta versão ainda não está conectada a uma IA.</div>
+</section>
+<p><small>Protótipo inicial · Workforce OS · Versão 0.1</small></p>
+</main>
+<script>
+function prepareTask(){
+const task=document.getElementById('task').value.trim();
+const lang=document.getElementById('language').value;
+const result=document.getElementById('result');
+if(!task){result.textContent='Escreva uma tarefa antes de continuar.';return;}
+result.textContent='Tarefa preparada!\n\nFuncionário: Research Analyst\nIdioma: '+lang+'\nInstrução: '+task+'\n\nPróxima etapa: conectar o funcionário a um modelo de IA para executar pesquisas reais.';
+}
+</script>
+</body>
+</html>
